@@ -67,7 +67,7 @@ for feature_name in NUMERIC_COLUMNS:
 print("\n"+"Unique entries in Column 'Embark Town': ",dftrain['embark_town'].unique())
 ### Actual Tensor Flow Code
 
-def make_input_fn(data_df, label_df, num_epochs=12, shuffle=True, batch_size=32):
+def make_input_fn(data_df, label_df, num_epochs=20, shuffle=True, batch_size=32):
     def input_function():
         ds = tf.data.Dataset.from_tensor_slices((dict(data_df), label_df))
         if shuffle:
@@ -84,15 +84,23 @@ linear_est = tf.estimator.LinearClassifier(feature_columns=feature_columns) #cre
 linear_est.train(train_input_fn)                                            #train it
 result = linear_est.evaluate(eval_input_fn)                                 #get metrics of model
 prediction = list(linear_est.predict(eval_input_fn))
+
+### Print some results finally
 #clear_output() #where does this come from?
 print(5*"\n")
-
 print("Accuracy:\t",result['accuracy'])
 print("Predictions:\n")
 for i in range(5):
+    print(33*". ")
     print(dfeval.loc[i])
     print("")
-    print(f"Prediction for Passenger {i} survival:\t{prediction[i]['probabilities'][1]}\n")
+    print(f"Prediction for passenger {i} survival:\t{prediction[i]['probabilities'][1]}")
+    status = "…"
+    if y_eval.loc[i]:
+        status = "survived"
+    else:
+        status = "died"
+    print(f"And they actually {status}.\n\n")
 
 
 ### Casual print before exit
