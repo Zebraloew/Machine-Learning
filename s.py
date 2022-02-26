@@ -1,6 +1,6 @@
 ### In VS Code Studio — you can set up the right environment as follows:
 ### press: option + shift + P
-### write: "Python: Select Environment"
+### write: "Python: Select Interpreter"
 ### py36 
 ### (This is my Python 3.6 legacy Conda environment. 
 ###  with a newer version, tensor flow does not run properly on El Capitan.)

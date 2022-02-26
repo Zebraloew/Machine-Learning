@@ -86,7 +86,7 @@ for pred_dict, expec in zip(predictions, expected):
     class_id = pred_dict['class_ids'][0]
     probability = pred_dict['probabilities'][class_id]
 
-    print('Prediction is "{}" ({:.1f}%), expected "{}"'.format(
+    print('Prediction is "{}" ({:.2f}%)\t expected "{}"'.format(
         SPECIES[class_id], 100 * probability, expec))
 
 
