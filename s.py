@@ -1,5 +1,5 @@
 ### In VS Code Studio — you can set up the right environment as follows:
-### press: option + shift + P
+### press: cmd + shift + P
 ### write: "Python: Select Interpreter"
 ### py36 
 ### (This is my Python 3.6 legacy Conda environment. 
