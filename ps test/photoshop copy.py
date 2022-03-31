@@ -24,7 +24,8 @@ class ColorSwatch():
 
     def __strCMYK(self):
         rgb8bit = map(lambda a: (65535 - a)/655.35, self.rawdata[1:])
-        return "{name} ({typename}): {0}% {1}% {2}% {3}%".format(*rgb8bit,**self.__dict__)
+        #return "{name} ({typename}): {0}% {1}% {2}% {3}%".format(*rgb8bit,**self.__dict__)
+        return ""
 
     def __strRGB(self):
         rgb8bit = map(lambda a: a/256,(self.rawdata[1:4]))
@@ -38,13 +39,16 @@ class ColorSwatch():
             valuehex = str(hex(int(round(rgblist[i]))))[2:]
             if len(valuehex) <= 1:
                 print("0", end="")
+            if len(valuehex) > 2:
+                valuehex = "ff"
             print("{}".format(valuehex), end="")
-        print()
+        #print()
         return ""#"{name} \t {0:.0f}  {1:.0f}  {2:.0f}".format(*rgb8bit,**self.__dict__)
 
     def __strGrayscale(self):
         gray = self.rawdata[1]/100.
-        return "{name} ({typename}): {0}%".format(gray,**self.__dict__)
+        #return "{name} ({typename}): {0}%".format(gray,**self.__dict__)
+        return ""
 
     def __str__(self):
         return {0: self.__strRGB, 
