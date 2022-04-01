@@ -5,7 +5,7 @@ import struct
 # CHOOSE FILE AND FORMAT HERE
 file = "test3.aco"
 output_possibilities = ["hex","RGB","R","G","B"]
-choice = 2
+choice = 3
 output = output_possibilities[choice]
 
 print(450*"—")
